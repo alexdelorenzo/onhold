@@ -1,4 +1,4 @@
-# Play music while running long jobs, or play a sound when finished
+# 🔊 Play music while and after a long job completes 
 
 `onhold` comes with two commands: `onhold` and `ding`.
 
