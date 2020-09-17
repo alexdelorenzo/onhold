@@ -73,6 +73,19 @@ Hello!
 ```
 
 # Installation
+## Dependencies
+ - A Unix shell like Bash
+ - Python 3.8+
+ - `requirements.txt`
+
+### Linux
+ - GStreamer
+
+On Ubuntu, you will need to install `gstreamer1.0-python3-plugin-loader` and `python3-gst-1.0`.
+```bash
+sudo apt install gstreamer1.0-python3-plugin-loader python3-gst-1.0
+```
+
 ## PyPI
 ```bash
 $ python3 -m pip install onhold
