@@ -22,18 +22,21 @@ def run(file: Path):
 
 @click.command(help="Play specified sound after job is complete.")
 @click.option('-s', '--sound_path', required=False,
-  type=click.Path(exists=True))
-def cmd(sound_path):
+  type=click.Path(exists=True), help="Path to sound to play.")
+@click.option('-i', '--ignore', required=False,
+  is_flag=True, default=False,
+  help="Suppress warnings.")
+def cmd(sound_path, ignore):
   path: Optional[Path] = DEFAULT_SOUND
 
   if sound_path:
     path = Path(str(sound_path))
 
   else:
-    if ENV_VAR in environ:
-      path = Path(environ[ENV_VAR])
+    if file := environ.get(ENV_VAR):
+      path = Path(file)
 
-    else:
+    elif not ignore:
       stderr.write(f"Please set ${ENV_VAR} or use the -s flag.\n")
 
   run(path)

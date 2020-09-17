@@ -83,21 +83,23 @@ def run(file: Optional[Path] = None):
 
 
 @click.command(help="""Play the specified sound file
-while data is passed in through standard input and
- passed through standard output.""")
+while data is passed in through standard input and passed through standard output.""")
 @click.option('-s', '--sound_path', required=False,
-  type=click.Path(exists=True))
-def cmd(sound_path):
+  type=click.Path(exists=True), help="Path to sound to play."))
+@click.option('-i', '--ignore', required=False,
+  is_flag=True, default=False,
+    help="Suppress warnings.")
+def cmd(sound_path, ignore):
   path: Optional[Path] = DEFAULT_SONG
 
   if sound_path:
     path = Path(str(sound_path))
 
   else:
-    if ENV_VAR in environ:
-      path = Path(environ[ENV_VAR])
+    if file := environ.get(ENV_VAR):
+      path = Path(file)
 
-    else:
+    elif not ignore:
       stderr.write(f"Please set ${ENV_VAR} or use the -s flag.\n")
 
   run(path)
