@@ -1,4 +1,4 @@
-# 🔊 Play music while and after a long job completes 
+# 🔊 Play music while and after jobs complete
 
 `onhold` is a command-line utility that allows you to play music while a long job completes.
 
