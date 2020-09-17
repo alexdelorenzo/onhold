@@ -73,7 +73,6 @@ Hello!
 ```
 
 # Installation
-
 ## PyPI
 ```bash
 $ python3 -m pip install onhold
@@ -83,6 +82,34 @@ $ python3 -m pip install onhold
 ```bash
 $ python3 -m pip install -r requirements.txt
 $ python3 setup.py install
+```
+
+# Help
+## `onhold`
+```bash
+$ onhold --help
+Usage: onhold [OPTIONS]
+
+  Play the specified sound file while data is passed in through standard
+  input and passed through standard output.
+
+Options:
+  -s, --sound_path PATH  Path to sound to play.
+  -i, --ignore           Suppress warnings.
+  --help                 Show this message and exit.
+```
+
+## `ding`
+```bash
+ding --help
+Usage: ding [OPTIONS]
+
+  Play specified sound after job is complete.
+
+Options:
+  -s, --sound_path PATH  Path to sound to play.
+  -i, --ignore           Suppress warnings.
+  --help                 Show this message and exit.
 ```
 
 # License
