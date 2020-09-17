@@ -47,6 +47,19 @@ $ echo "Hello!" | ding -s ding.ogg
 Hello!
 ```
 
+# Installation
+
+## PyPI
+```bash
+$ python3 -m pip install onhold
+```
+
+## GitHub
+```bash
+$ python3 -m pip install -r requirements.txt
+$ python3 setup.py install
+```
+
 # License
 See `LICENSE`. If you'd like to use this project with a different license, please get in touch.
 
