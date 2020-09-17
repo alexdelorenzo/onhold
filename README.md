@@ -11,6 +11,15 @@ $ echo "Hello!" | onhold
 Hello!
 ```
 
+This means you can build pipelines with `onhold` and `ding`.
+
+For example, you can download an ISO with `http`, visualize the progress with `pv`, play music with `onhold` while writing to `/dev/sdb1`, and when it's finished, play a sound with `ding`.
+
+```bash
+$ export URL="https://releases.ubuntu.com/20.04.1/ubuntu-20.04.1-desktop-amd64.iso"
+$ http "$URL" | pv | onhold | ding > /dev/sdb1
+```
+
 ## `onhold`
 
 You can either set the `$ONHOLD` environmental variable to the song you'd like to play, or supply the song with the `-s` flag.
