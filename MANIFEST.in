@@ -1,5 +1,4 @@
 include README.md
 include CREDIT.md
-include setup.py
-include song.mp3
-include ding.ogg
+include assets/song.mp3
+include assets/ding.ogg

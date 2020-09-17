@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 NAME = "onhold"
-VERSION = "0.1.1"
+VERSION = "0.1.6"
 LICENSE = "AGPL-3.0"
 
 requirements = \
@@ -24,10 +24,12 @@ setup(
       author=__author__,
       license=LICENSE,
       packages=[NAME],
-      zip_safe=True,
+      zip_safe=False,
       install_requires=requirements,
       entry_points={"console_scripts":
                       [f"{NAME} = {NAME}.base:cmd",
                        f"ding = {NAME}.after:cmd"]},
       python_requires='>=3.6',
+      include_package_data=True,
+      package_data={'onhold': ['assets/*']},
 )
