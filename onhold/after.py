@@ -3,7 +3,7 @@ from pathlib import Path
 from sys import exit, stderr
 
 from .base import play_after, dumb_pipe, \
-  play_file, RC_ENV_VAR, DEFAULT_SOUND
+  play_file, RC_ENV_VAR, DEFAULT_SOUND, RC_OK
 
 import click
 
