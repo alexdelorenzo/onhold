@@ -33,7 +33,7 @@ def play_loop(file: Path):
       play_file(file)
 
   except Exception as e:
-    stderr.write(f"Error while trying to play {file}: {e}")
+    stderr.write(f"Error while trying to play {file}: {e}\n")
 
 
 def play_process(file: Path) -> Process:
