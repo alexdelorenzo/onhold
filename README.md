@@ -55,7 +55,7 @@ $ echo "Hello!" | ding -s ding.ogg
 Hello!
 ```
 
-`ding` comes with a default song that will play if neither `$DING` or `-s` are set, and it will print a warning to standard error so that standard ouput is unchanged.
+`ding` comes with a default sound that will play if neither `$DING` or `-s` are set, and it will print a warning to standard error so that standard ouput is unchanged.
 
 ```bash
 $ echo "Hello!" | ding
