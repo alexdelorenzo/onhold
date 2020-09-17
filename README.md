@@ -33,7 +33,7 @@ $ pv /dev/zero | onhold -s song.mp3 > /dev/null
 You can either set the `$DING` environmental variable to the song you'd like to play, or supply the song with the `-s` flag.
 
 ```bash
-$ export DING="~/Music/sound.ogg"
+$ export DING="~/Music/ding.ogg"
 $ pv /dev/zero | ding > /dev/null
 ```
 
@@ -42,7 +42,7 @@ This allows you to set `$DING` in your `~/.bashrc`
 You can also specify it with a flag.
 
 ```bash
-$ pv /dev/zero | ding -s sound.ogg > /dev/null
+$ pv /dev/zero | ding -s ding.ogg > /dev/null
 ```
 
 # License
