@@ -34,7 +34,8 @@ You can either set the `$DING` environmental variable to the song you'd like to 
 
 ```bash
 $ export DING="~/Music/ding.ogg"
-$ pv /dev/zero | ding > /dev/null
+$ echo "Hello!" | ding
+Hello!
 ```
 
 This allows you to set `$DING` in your `~/.bashrc`
@@ -42,7 +43,8 @@ This allows you to set `$DING` in your `~/.bashrc`
 You can also specify it with a flag.
 
 ```bash
-$ pv /dev/zero | ding -s ding.ogg > /dev/null
+$ echo "Hello!" | ding -s ding.ogg
+Hello!
 ```
 
 # License
