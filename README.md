@@ -1,12 +1,15 @@
 # 🔊 Play music while and after a long job completes 
 
-`onhold` comes with two commands: `onhold` and `ding`.
+`onhold` is a command-line utility that allows you to play music while a long job completes.
 
-`onhold` is a utility that allows you to play music while a long job completes.
+`ding` is command-line utility that will play a sound when a long job completes. 
 
-`ding` is utility that will play a sound when a long job completes. 
+Both utilities will take data that is piped into their standard inputs and pipe it to standard output. That is to say that data piped into `onhold` and `ding` will be piped right back out.
 
-Both utilities will take data that is piped into their standard input and pipe it to standard output. That is to say that data piped into `onhold` and `ding` will be piped right back out.
+```bash
+$ echo "Hello!" | onhold
+Hello!
+```
 
 ## `onhold`
 
