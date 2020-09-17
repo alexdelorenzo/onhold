@@ -24,7 +24,7 @@ def run(file: Path):
 @click.option('-s', '--sound_path', required=False,
   type=click.Path(exists=True))
 def cmd(sound_path):
-  path: Optional[Path] = DEFAULT_SOUND
+  path: Optional[Path] = None
 
   if sound_path:
     path = Path(str(sound_path))
