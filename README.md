@@ -11,7 +11,7 @@ $ echo "Hello!" | onhold
 Hello!
 ```
 
-This means you can build pipelines with `onhold` and `ding`.
+As a result, you can build pipelines with `onhold` and `ding`.
 
 For example, you can download an ISO with [`http`](https://httpie.org/), visualize the progress with [`pv`](http://www.ivarch.com/programs/pv.shtml), play music with `onhold` while writing to `/dev/sdb1`, and when it's finished, play a sound with `ding`.
 
