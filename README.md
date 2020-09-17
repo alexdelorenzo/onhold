@@ -101,7 +101,7 @@ Options:
 
 ## `ding`
 ```bash
-ding --help
+$ ding --help
 Usage: ding [OPTIONS]
 
   Play specified sound after job is complete.
