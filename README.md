@@ -1,4 +1,4 @@
-# 🔊 Play music while and after jobs complete
+# 🔊 Play music while and after shell jobs complete
 
 `onhold` is a command-line utility that allows you to play music while a long job completes.
 
@@ -17,7 +17,7 @@ For example, you can download an ISO with [`http`](https://httpie.org/), visuali
 
 ```bash
 $ export URL="https://releases.ubuntu.com/20.04.1/ubuntu-20.04.1-desktop-amd64.iso"
-$ http "$URL" | pv | onhold | ding > /dev/sdb1
+$ http "$URL" | pv | onhold | ding > /dev/null
 ```
 
 ## `onhold`
