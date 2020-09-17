@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 NAME = "onhold"
-VERSION = "0.1.11"
+VERSION = "0.1.12"
 LICENSE = "AGPL-3.0"
 
 requirements = \
