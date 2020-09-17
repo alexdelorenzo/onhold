@@ -24,8 +24,7 @@ def run(file: Path):
 @click.option('-s', '--sound_path', required=False,
   type=click.Path(exists=True), help="Path to sound to play.")
 @click.option('-i', '--ignore', required=False,
-  is_flag=True, default=False,
-  help="Suppress warnings.")
+  is_flag=True, default=False, help="Suppress warnings.")
 def cmd(sound_path, ignore):
   path: Optional[Path] = DEFAULT_SOUND
 
@@ -41,8 +40,12 @@ def cmd(sound_path, ignore):
 
   run(path)
 
-  if not path:
+  if path:
+    exit(RC_OK)
+    
+  else:
     exit(RC_ENV_VAR)
+
 
 if __name__ == "__main__":
   cmd()
