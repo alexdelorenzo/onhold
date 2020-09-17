@@ -30,7 +30,7 @@ $ pv /dev/zero | onhold -s song.mp3 > /dev/null
 
 ## `ding`
 
-You can either set the `$DING` environmental variable to the song you'd like to play, or supply the song with the `-s` flag.
+You can either set the `$DING` environmental variable to the sound you'd like to play, or supply the sound with the `-s` flag.
 
 ```bash
 $ export DING="~/Music/ding.ogg"
