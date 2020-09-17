@@ -31,7 +31,7 @@ def cmd(sound_path):
 
   else:
     if ENV_VAR in environ:
-      path = Path(file_loc)
+      path = Path(environ[ENV_VAR])
 
     else:
       stderr.write(f"Please set ${ENV_VAR} or use the -s flag.\n")
