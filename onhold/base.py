@@ -100,10 +100,10 @@ def cmd(sound_path):
     else:
       stderr.write(f"Please set ${ENV_VAR} or use the -s flag.\n")
 
-    run(path)
+  run(path)
 
-    if not path:
-      exit(RC_ENV_VAR)
+  if not path:
+    exit(RC_ENV_VAR)
 
 
 
