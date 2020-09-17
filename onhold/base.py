@@ -43,7 +43,7 @@ def play_process(file: Path) -> Process:
   return proc
 
 
-def kill_proc(proc: Process):
+def kill_process(proc: Process):
   proc.kill()
   proc.join()
 
@@ -56,7 +56,7 @@ def play_while_running(file: Path):
     yield proc
 
   finally:
-    kill_proc(proc)
+    kill_process(proc)
 
 
 @contextmanager
@@ -70,6 +70,7 @@ def play_after(file: Path):
 def dumb_pipe():
   for line in stdin.buffer:
     stdout.buffer.write(line)
+    stdout.buffer.flush()
 
 
 def run(file: Optional[Path] = None):
@@ -103,7 +104,7 @@ def cmd(sound_path, ignore):
 
   if path:
     exit(RC_OK)
-    
+
   else:
     exit(RC_ENV_VAR)
 
