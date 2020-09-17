@@ -20,7 +20,7 @@ $ export ONHOLD="~/Music/song.mp3"
 $ pv /dev/zero | onhold > /dev/null
 ```
 
-This allows you to set `$ONHOLD` in your `~/.bashrc`
+This allows you to set `$ONHOLD` in your `~/.bashrc`.
 
 You can also specify it with a flag.
 
@@ -38,7 +38,7 @@ $ echo "Hello!" | ding
 Hello!
 ```
 
-This allows you to set `$DING` in your `~/.bashrc`
+This allows you to set `$DING` in your `~/.bashrc`.
 
 You can also specify it with a flag.
 
