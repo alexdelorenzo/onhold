@@ -46,7 +46,6 @@ def play_process(file: Path) -> Process:
 def kill_and_exit(proc: Process):
   proc.kill()
   proc.join()
-  exit(RC_OK)
 
 
 @contextmanager
@@ -80,6 +79,7 @@ def run(file: Optional[Path] = None):
 
   with play_while_running(file) as proc:
     dumb_pipe()
+    exit(RC_OK)
 
 
 @click.command(help="""Play the specified sound file
