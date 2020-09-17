@@ -14,17 +14,26 @@ RC_ENV_VAR = 1
 ENV_VAR = 'ONHOLD'
 
 
-def play_file(file: Path):
-  try:
-    playsound(str(file.absolute()))
+def get_assets_dir() -> Path:
+  return Path(__file__).parent.parent / 'assets'
 
-  except Exception as e:
-    stderr.write(f"{type(e)}: Could not play {file}.")
+
+DEFAULT_ASSETS = get_assets_dir()
+DEFAULT_SONG = DEFAULT_ASSETS / 'song.mp3'
+DEFAULT_SOUND = DEFAULT_ASSETS / 'ding.ogg'
+
+
+def play_file(file: Path):
+  playsound(str(file.absolute()))
 
 
 def play_loop(file: Path):
-  while True:
-    play_file(file)
+  try:
+    while True:
+      play_file(file)
+
+  except Exception as e:
+    stderr.write(f"Could not play {file}.")
 
 
 def play_process(file: Path) -> Process:
@@ -89,7 +98,7 @@ def cmd(sound_path):
       path = Path(file_loc)
 
     else:
-      stderr.write(f"Please set ${ENV_VAR}.\n")
+      stderr.write(f"Please set ${ENV_VAR} or use the -s flag.\n")
 
     run(path)
 

@@ -3,7 +3,7 @@ from pathlib import Path
 from sys import exit, stderr
 
 from .base import play_after, dumb_pipe, \
-  play_file, RC_ENV_VAR
+  play_file, RC_ENV_VAR, DEFAULT_SOUND
 
 import click
 
@@ -34,8 +34,7 @@ def cmd(sound_path):
       path = Path(file_loc)
 
     else:
-      stderr.write(f"Please set ${ENV_VAR}.\n")
-
+      stderr.write(f"Please set ${ENV_VAR} or use the -s flag.\n")
     run(path)
 
     if not path:
