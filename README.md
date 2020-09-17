@@ -13,7 +13,7 @@ Hello!
 
 This means you can build pipelines with `onhold` and `ding`.
 
-For example, you can download an ISO with `http`, visualize the progress with `pv`, play music with `onhold` while writing to `/dev/sdb1`, and when it's finished, play a sound with `ding`.
+For example, you can download an ISO with `http`, visualize the progress with [`pv`](http://www.ivarch.com/programs/pv.shtml), play music with `onhold` while writing to `/dev/sdb1`, and when it's finished, play a sound with `ding`.
 
 ```bash
 $ export URL="https://releases.ubuntu.com/20.04.1/ubuntu-20.04.1-desktop-amd64.iso"
