@@ -69,8 +69,8 @@ def play_after(file: Path):
 
 
 def dumb_pipe():
-  for line in stdin:
-    stdout.write(line)
+  for line in stdin.buffer:
+    stdout.buffer.write(line)
 
 
 def run(file: Optional[Path] = None):
