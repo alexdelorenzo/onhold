@@ -28,6 +28,14 @@ You can also specify it with a flag.
 $ pv /dev/zero | onhold -s song.mp3 > /dev/null
 ```
 
+`onhold` comes with a default song that will play if neither `$ONHOLD` or `-s` are set, and it will print a warning to standard error so that standard ouput is unchanged.
+
+```bash
+$ echo "Hello!" | onhold
+Please set $ONHOLD or use the -s flag.
+Hello!
+```
+
 ## `ding`
 
 You can either set the `$DING` environmental variable to the sound you'd like to play, or supply the sound with the `-s` flag.
@@ -44,6 +52,14 @@ You can also specify it with a flag.
 
 ```bash
 $ echo "Hello!" | ding -s ding.ogg
+Hello!
+```
+
+`ding` comes with a default song that will play if neither `$DING` or `-s` are set, and it will print a warning to standard error so that standard ouput is unchanged.
+
+```bash
+$ echo "Hello!" | ding
+Please set $DING or use the -s flag.
 Hello!
 ```
 
