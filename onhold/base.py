@@ -43,7 +43,7 @@ def play_process(file: Path) -> Process:
   return proc
 
 
-def kill_proc(proc: Process):
+def kill_process(proc: Process):
   proc.kill()
   proc.join()
 
@@ -56,7 +56,7 @@ def play_while_running(file: Path):
     yield proc
 
   finally:
-    kill_proc(proc)
+    kill_process(proc)
 
 
 @contextmanager
