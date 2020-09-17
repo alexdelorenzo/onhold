@@ -11,6 +11,15 @@ $ echo "Hello!" | onhold
 Hello!
 ```
 
+This means you can build pipelines with `onhold` and `ding`.
+
+For example, you can download an ISO with [`http`](https://httpie.org/), visualize the progress with [`pv`](http://www.ivarch.com/programs/pv.shtml), play music with `onhold` while writing to `/dev/sdb1`, and when it's finished, play a sound with `ding`.
+
+```bash
+$ export URL="https://releases.ubuntu.com/20.04.1/ubuntu-20.04.1-desktop-amd64.iso"
+$ http "$URL" | pv | onhold | ding > /dev/sdb1
+```
+
 ## `onhold`
 
 You can either set the `$ONHOLD` environmental variable to the song you'd like to play, or supply the song with the `-s` flag.
@@ -26,6 +35,14 @@ You can also specify it with a flag.
 
 ```bash
 $ pv /dev/zero | onhold -s song.mp3 > /dev/null
+```
+
+`onhold` comes with a default song that will play if neither `$ONHOLD` or `-s` are set, and it will print a warning to standard error so that standard ouput is unchanged.
+
+```bash
+$ echo "Hello!" | onhold
+Please set $ONHOLD or use the -s flag.
+Hello!
 ```
 
 ## `ding`
@@ -44,6 +61,14 @@ You can also specify it with a flag.
 
 ```bash
 $ echo "Hello!" | ding -s ding.ogg
+Hello!
+```
+
+`ding` comes with a default sound that will play if neither `$DING` or `-s` are set, and it will print a warning to standard error so that standard ouput is unchanged.
+
+```bash
+$ echo "Hello!" | ding
+Please set $DING or use the -s flag.
 Hello!
 ```
 
