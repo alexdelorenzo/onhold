@@ -33,7 +33,7 @@ def play_loop(file: Path):
       play_file(file)
 
   except Exception as e:
-    stderr.write(f"Could not play {file}.")
+    stderr.write(f"Error while trying to play {file}: {e}")
 
 
 def play_process(file: Path) -> Process:
@@ -43,7 +43,7 @@ def play_process(file: Path) -> Process:
   return proc
 
 
-def kill_and_exit(proc: Process):
+def kill_proc(proc: Process):
   proc.kill()
   proc.join()
 
@@ -56,7 +56,7 @@ def play_while_running(file: Path):
     yield proc
 
   finally:
-    kill_and_exit(proc)
+    kill_proc(proc)
 
 
 @contextmanager
@@ -79,16 +79,13 @@ def run(file: Optional[Path] = None):
 
   with play_while_running(file) as proc:
     dumb_pipe()
-    exit(RC_OK)
 
 
-@click.command(help="""Play the specified sound file
-while data is passed in through standard input and passed through standard output.""")
+@click.command(help="""Play the specified sound file while data is passed in through standard input and passed through standard output.""")
 @click.option('-s', '--sound_path', required=False,
   type=click.Path(exists=True), help="Path to sound to play.")
 @click.option('-i', '--ignore', required=False,
-  is_flag=True, default=False,
-    help="Suppress warnings.")
+  is_flag=True, default=False, help="Suppress warnings.")
 def cmd(sound_path, ignore):
   path: Optional[Path] = DEFAULT_SONG
 
@@ -104,9 +101,11 @@ def cmd(sound_path, ignore):
 
   run(path)
 
-  if not path:
+  if path:
+    exit(RC_OK)
+    
+  else:
     exit(RC_ENV_VAR)
-
 
 
 if __name__ == "__main__":
