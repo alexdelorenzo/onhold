@@ -15,7 +15,7 @@ ENV_VAR = 'ONHOLD'
 
 
 def get_assets_dir() -> Path:
-  return Path(__file__).parent.parent / 'assets'
+  return Path(__file__).parent / 'assets'
 
 
 DEFAULT_ASSETS = get_assets_dir()
@@ -88,7 +88,7 @@ while data is passed in through standard input and
 @click.option('-s', '--sound_path', required=False,
   type=click.Path(exists=True))
 def cmd(sound_path):
-  path: Optional[Path] = None
+  path: Optional[Path] = DEFAULT_SONG
 
   if sound_path:
     path = Path(str(sound_path))
