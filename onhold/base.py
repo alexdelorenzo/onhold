@@ -82,13 +82,13 @@ def run(file: Optional[Path] = None):
     dumb_pipe()
 
 
-@click.command(help="""Play the specified sound file while data is passed in through standard input and passed through standard output.""")
-@click.option('-s', '--sound_path', required=False,
-  type=click.Path(exists=True), help="Path to sound to play.")
-@click.option('-i', '--ignore', required=False,
-  is_flag=True, default=False, help="Suppress warnings.")
-def cmd(sound_path: Optional[str], ignore: bool):
-  path: Optional[Path] = DEFAULT_SONG
+@contextmanager
+def using_path(
+  sound_path: Optional[str], 
+  ignore: bool, 
+  default: Optional[Path] = DEFAULT_SONG
+) -> Path:
+  path: Optional[Path] = default
 
   if sound_path:
     path = Path(str(sound_path))
@@ -99,13 +99,23 @@ def cmd(sound_path: Optional[str], ignore: bool):
   elif not ignore:
     stderr.write(f"Please set ${ENV_VAR} or use the -s flag.\n")
 
-  run(path)
+  yield path
 
   if path:
     exit(RC_OK)
 
   else:
     exit(RC_ENV_VAR)
+
+
+@click.command(help="""Play the specified sound file while data is passed in through standard input and passed through standard output.""")
+@click.option('-s', '--sound_path', required=False,
+  type=click.Path(exists=True), help="Path to sound to play.")
+@click.option('-i', '--ignore', required=False,
+  is_flag=True, default=False, help="Suppress warnings.")
+def cmd(sound_path: Optional[str], ignore: bool):
+  with using_path(sound_path, ignore) as path:
+    run(path)
 
 
 if __name__ == "__main__":

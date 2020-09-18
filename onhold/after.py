@@ -3,7 +3,7 @@ from sys import exit, stderr
 from pathlib import Path
 from os import environ
 
-from .base import play_after, dumb_pipe, \
+from .base import play_after, dumb_pipe, using_path, \
   play_file, RC_ENV_VAR, DEFAULT_SOUND, RC_OK
 
 import click
@@ -27,24 +27,8 @@ def run(file: Path):
 @click.option('-i', '--ignore', required=False,
   is_flag=True, default=False, help="Suppress warnings.")
 def cmd(sound_path: Optional[str], ignore: bool):
-  path: Optional[Path] = DEFAULT_SOUND
-
-  if sound_path:
-    path = Path(str(sound_path))
-
-  elif file := environ.get(ENV_VAR):
-    path = Path(file)
-
-  elif not ignore:
-    stderr.write(f"Please set ${ENV_VAR} or use the -s flag.\n")
-
-  run(path)
-
-  if path:
-    exit(RC_OK)
-
-  else:
-    exit(RC_ENV_VAR)
+  with using_path(sound_path, ignore, default=DEFAULT_SOUND) as path:
+    run(path)
 
 
 if __name__ == "__main__":
