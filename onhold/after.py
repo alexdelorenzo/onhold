@@ -1,3 +1,4 @@
+from typing import Optional
 from sys import exit, stderr
 from pathlib import Path
 from os import environ
@@ -25,7 +26,7 @@ def run(file: Path):
   type=click.Path(exists=True), help="Path to sound to play.")
 @click.option('-i', '--ignore', required=False,
   is_flag=True, default=False, help="Suppress warnings.")
-def cmd(sound_path, ignore):
+def cmd(sound_path: Optional[str], ignore: bool):
   path: Optional[Path] = DEFAULT_SOUND
 
   if sound_path:
