@@ -88,7 +88,7 @@ def using_path(
   ignore: bool, 
   default: Optional[Path] = DEFAULT_SONG
 ) -> Path:
-  path: Optional[Path] = default
+  path = default
 
   if sound_path:
     path = Path(str(sound_path))
