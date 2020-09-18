@@ -1,6 +1,6 @@
-from os import environ
-from pathlib import Path
 from sys import exit, stderr
+from pathlib import Path
+from os import environ
 
 from .base import play_after, dumb_pipe, \
   play_file, RC_ENV_VAR, DEFAULT_SOUND, RC_OK
@@ -31,18 +31,17 @@ def cmd(sound_path, ignore):
   if sound_path:
     path = Path(str(sound_path))
 
-  else:
-    if file := environ.get(ENV_VAR):
-      path = Path(file)
+  elif file := environ.get(ENV_VAR):
+    path = Path(file)
 
-    elif not ignore:
-      stderr.write(f"Please set ${ENV_VAR} or use the -s flag.\n")
+  elif not ignore:
+    stderr.write(f"Please set ${ENV_VAR} or use the -s flag.\n")
 
   run(path)
 
   if path:
     exit(RC_OK)
-    
+
   else:
     exit(RC_ENV_VAR)
 

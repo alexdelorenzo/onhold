@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 NAME = "onhold"
-VERSION = "0.2.8"
+VERSION = "0.2.9"
 LICENSE = "AGPL-3.0"
 
 DESC = "🔊 Play music while and after jobs complete"

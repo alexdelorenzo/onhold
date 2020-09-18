@@ -93,12 +93,11 @@ def cmd(sound_path, ignore):
   if sound_path:
     path = Path(str(sound_path))
 
-  else:
-    if file := environ.get(ENV_VAR):
-      path = Path(file)
+  elif file := environ.get(ENV_VAR):
+    path = Path(file)
 
-    elif not ignore:
-      stderr.write(f"Please set ${ENV_VAR} or use the -s flag.\n")
+  elif not ignore:
+    stderr.write(f"Please set ${ENV_VAR} or use the -s flag.\n")
 
   run(path)
 
