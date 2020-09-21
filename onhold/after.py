@@ -13,10 +13,10 @@ ENV_VAR = 'DING'
 
 
 def run(file: Path):
-  if not is_pipeline():
-    return
-
   with play_after(file):
+    if not is_pipeline():
+      return
+
     dumb_pipe()
 
 
