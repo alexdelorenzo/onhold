@@ -67,10 +67,18 @@ def play_after(file: Path) -> ContextManager:
     play_file(file)
 
 
+def is_pipeline() -> bool:
+  return sys.stdin.isatty()
+
+
 def dumb_pipe():
+  if not is_pipeline():
+    return
+
   for line in stdin.buffer:
     stdout.buffer.write(line)
     stdout.buffer.flush()
+
 
 
 def run(file: Optional[Path] = None):
