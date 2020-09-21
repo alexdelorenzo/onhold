@@ -2,7 +2,7 @@
 
 `onhold` is a command-line utility that allows you to play music while a long job completes.
 
-`ding` is command-line utility that will play a sound after a long job completes. 
+`ding` is command-line utility that will play a sound after a long job completes.
 
 Both utilities will take data that is piped into their standard inputs and pipe it to standard output. That is to say that data piped into `onhold` and `ding` will be piped right back out.
 
@@ -50,7 +50,9 @@ Hello!
 You can either set the `$DING` environment variable to the sound you'd like to play, or supply the sound with the `-s` flag.
 
 ```bash
+# You can run ding after a command or as part of a pipeline
 $ export DING="~/Music/ding.ogg"
+$ sleep 5; ding
 $ echo "Hello!" | ding
 Hello!
 ```
