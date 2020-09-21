@@ -74,13 +74,9 @@ def is_pipeline() -> bool:
 
 
 def dumb_pipe():
-  if not is_pipeline():
-    return
-
   for line in stdin.buffer:
     stdout.buffer.write(line)
     stdout.buffer.flush()
-
 
 
 def run(file: Optional[Path] = None):

@@ -4,7 +4,7 @@ from pathlib import Path
 from os import environ
 
 from .base import play_after, dumb_pipe, using_path, \
-  play_file, RC_ENV_VAR, DEFAULT_SOUND, RC_OK
+  play_file, is_pipeline, RC_ENV_VAR, DEFAULT_SOUND, RC_OK
 
 import click
 
@@ -13,6 +13,9 @@ ENV_VAR = 'DING'
 
 
 def run(file: Path):
+  if not is_pipeline():
+    return
+
   with play_after(file):
     dumb_pipe()
 
