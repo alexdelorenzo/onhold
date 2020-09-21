@@ -13,7 +13,7 @@ ENV_VAR = 'DING'
 
 
 def run(file: Path):
-  with play_after(file):
+  with play_after(file) as path:
     if not is_pipeline():
       return
 
@@ -26,7 +26,7 @@ def run(file: Path):
 @click.option('-i', '--ignore', required=False,
   is_flag=True, default=False, help="Suppress warnings.")
 def cmd(sound_path: Optional[str], ignore: bool):
-  with using_path(sound_path, ignore, default=DEFAULT_SOUND) as path:
+  with using_path(sound_path, ignore, DEFAULT_SOUND, ENV_VAR) as path:
     run(path)
 
 

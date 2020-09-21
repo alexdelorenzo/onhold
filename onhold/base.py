@@ -60,9 +60,9 @@ def play_while_running(file: Path) -> ContextManager[Process]:
 
 
 @contextmanager
-def play_after(file: Path) -> ContextManager:
+def play_after(file: Path) -> ContextManager[Path]:
   try:
-    yield
+    yield file
 
   finally:
     if file:
@@ -92,18 +92,19 @@ def run(file: Optional[Path] = None):
 def using_path(
   sound_path: Optional[str], 
   ignore: bool, 
-  default: Optional[Path] = DEFAULT_SONG
+  default: Optional[Path] = DEFAULT_SONG,
+  env_var: str = ENV_VAR,
 ) -> ContextManager[Path]:
   path = default
 
   if sound_path:
     path = Path(str(sound_path))
 
-  elif file := environ.get(ENV_VAR):
+  elif file := environ.get(env_var):
     path = Path(file)
 
   elif not ignore:
-    stderr.write(f"Please set ${ENV_VAR} or use the -s flag.\n")
+    stderr.write(f"Please set ${env_var} or use the -s flag.\n")
 
   yield path
 
