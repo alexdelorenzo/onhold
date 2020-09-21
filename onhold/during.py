@@ -12,7 +12,6 @@ import click
 ENV_VAR = 'ONHOLD'
 
 
-
 def run(file: Optional[Path] = None):
   if not file:
     dumb_pipe()
