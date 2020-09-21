@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 NAME = "onhold"
-VERSION = "0.3.2"
+VERSION = "0.3.3"
 LICENSE = "AGPL-3.0"
 
 DESC = "🔊 Play music while and after jobs complete"
@@ -29,7 +29,7 @@ setup(
       zip_safe=False,
       install_requires=requirements,
       entry_points={"console_scripts":
-                      [f"{NAME} = {NAME}.base:cmd",
+                      [f"{NAME} = {NAME}.during:cmd",
                        f"ding = {NAME}.after:cmd"]},
       python_requires='>=3.8',
       include_package_data=True,
