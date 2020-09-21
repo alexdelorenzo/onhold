@@ -1,7 +1,7 @@
 from sys import stdin, stdout, exit, stderr
 from pathlib import Path
 from multiprocessing import Process
-from contextlib import contextmanager
+from contextlib import contextmanager, ContextManager
 from os import environ
 from typing import Optional
 
@@ -49,7 +49,7 @@ def kill_process(proc: Process):
 
 
 @contextmanager
-def play_while_running(file: Path):
+def play_while_running(file: Path) -> ContextManager[Process]:
   proc = play_process(file)
 
   try:
@@ -60,7 +60,7 @@ def play_while_running(file: Path):
 
 
 @contextmanager
-def play_after(file: Path):
+def play_after(file: Path) -> ContextManager:
   yield
 
   if file:
@@ -87,8 +87,8 @@ def using_path(
   sound_path: Optional[str], 
   ignore: bool, 
   default: Optional[Path] = DEFAULT_SONG
-) -> Path:
-  path: Optional[Path] = default
+) -> ContextManager[Path]:
+  path = default
 
   if sound_path:
     path = Path(str(sound_path))

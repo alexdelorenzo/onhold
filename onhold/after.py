@@ -13,12 +13,8 @@ ENV_VAR = 'DING'
 
 
 def run(file: Path):
-  try:
+  with play_after(file):
     dumb_pipe()
-
-  finally:
-    if file:
-      play_file(file)
 
 
 @click.command(help="Play specified sound after job is complete.")
