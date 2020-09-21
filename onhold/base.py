@@ -1,9 +1,9 @@
 from sys import stdin, stdout, exit, stderr
 from pathlib import Path
 from multiprocessing import Process
-from contextlib import contextmanager, ContextManager
+from contextlib import contextmanager
 from os import environ
-from typing import Optional
+from typing import Optional, ContextManager
 
 from playsound import playsound
 import click
@@ -61,14 +61,16 @@ def play_while_running(file: Path) -> ContextManager[Process]:
 
 @contextmanager
 def play_after(file: Path) -> ContextManager:
-  yield
+  try:
+    yield
 
-  if file:
-    play_file(file)
+  finally:
+    if file:
+      play_file(file)
 
 
 def is_pipeline() -> bool:
-  return sys.stdin.isatty()
+  return not stdin.isatty()
 
 
 def dumb_pipe():
