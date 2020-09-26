@@ -26,7 +26,7 @@ def run(file: Path):
 @click.option('-w', '--warn', required=False,
   is_flag=True, default=False, help="Show warnings.")
 def cmd(sound_path: Optional[str], warn: bool):
-  with using_path(sound_path, ignore, DEFAULT_SOUND, ENV_VAR) as path:
+  with using_path(sound_path, warn, DEFAULT_SOUND, ENV_VAR) as path:
     run(path)
 
 
