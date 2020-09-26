@@ -91,7 +91,7 @@ def run(file: Optional[Path] = None):
 @contextmanager
 def using_path(
   sound_path: Optional[str], 
-  ignore: bool, 
+  warn: bool, 
   default: Optional[Path] = DEFAULT_SONG,
   env_var: str = ENV_VAR,
 ) -> ContextManager[Path]:
@@ -103,7 +103,7 @@ def using_path(
   elif file := environ.get(env_var):
     path = Path(file)
 
-  elif not ignore:
+  elif warn:
     stderr.write(f"Please set ${env_var} or use the -s flag.\n")
 
   yield path
@@ -118,10 +118,10 @@ def using_path(
 @click.command(help="""Play the specified sound file while data is passed in through standard input and passed through standard output.""")
 @click.option('-s', '--sound_path', required=False,
   type=click.Path(exists=True), help="Path to sound to play.")
-@click.option('-i', '--ignore', required=False,
-  is_flag=True, default=False, help="Suppress warnings.")
-def cmd(sound_path: Optional[str], ignore: bool):
-  with using_path(sound_path, ignore) as path:
+@click.option('-w', '--warn', required=False,
+  is_flag=True, default=False, help="Show warnings.")
+def cmd(sound_path: Optional[str], warn: bool):
+  with using_path(sound_path, warn) as path:
     run(path)
 
 
