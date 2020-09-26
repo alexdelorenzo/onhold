@@ -37,11 +37,10 @@ You can also specify it with a flag.
 $ pv /dev/zero | onhold -s song.mp3 > /dev/null
 ```
 
-`onhold` comes with a default song that will play if neither `$ONHOLD` or `-s` are set, and it will print a warning to standard error so that standard ouput is unchanged. This warning can be suppressed with the `-i` flag.
+`onhold` comes with a default song that will play if neither `$ONHOLD` or `-s` are set. You can use the `-w` flag to show warnings if `$ONHOLD` or `-s` are not set.
 
 ```bash
 $ echo "Hello!" | onhold
-Please set $ONHOLD or use the -s flag.
 Hello!
 ```
 
@@ -66,11 +65,10 @@ $ echo "Hello!" | ding -s ding.ogg
 Hello!
 ```
 
-`ding` comes with a default sound that will play if neither `$DING` or `-s` are set, and it will print a warning to standard error so that standard ouput is unchanged. This warning can be suppressed with the `-i` flag.
+`ding` comes with a default sound that will play if neither `$DING` or `-s` are set. You can use the `-w` flag to show warnings if `$DING` or `-s` are not set.
 
 ```bash
 $ echo "Hello!" | ding
-Please set $DING or use the -s flag.
 Hello!
 ```
 
@@ -79,6 +77,14 @@ Hello!
  - A Unix shell like Bash
  - Python 3.8+
  - `requirements.txt`
+
+### Python 
+
+This project uses the assignment expression feature that was introduced in Python 3.8. Read below if you'd like to use this project in an older version of Python.
+
+#### Older Python Versions
+
+Use [this project's Python 3.6 branch named `python3.6`](https://github.com/alexdelorenzo/onhold/tree/python3.6), which was tested on Python 3.6. It might work on older versions, too.
 
 ### Linux
  - GStreamer
