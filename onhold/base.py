@@ -113,8 +113,8 @@ def using_path(
   if sound_path:
     path = Path(str(sound_path))
 
-  elif file := environ.get(env_var):
-    path = Path(file)
+  elif env_var in environ:
+    path = Path(environ[env_var])
 
   elif warn:
     stderr.write(f"Please set ${env_var} or use the -s flag.\n")
