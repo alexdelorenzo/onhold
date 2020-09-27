@@ -92,7 +92,7 @@ Use [this project's Python 3.6 branch named `python3.6`](https://github.com/alex
 On Ubuntu, you will need to install `PyGObject`, `gstreamer1.0-python3-plugin-loader` and `python3-gst-1.0`.
 
 ```bash
-sudo apt install pytho3-gi gstreamer1.0-python3-plugin-loader python3-gst-1.0
+sudo apt install python3-gi gstreamer1.0-python3-plugin-loader python3-gst-1.0
 ```
 
 ## PyPI
