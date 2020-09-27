@@ -1,17 +1,18 @@
+from typing import Optional, ContextManager
 from sys import stdin, stdout, exit, stderr
 from pathlib import Path
 from multiprocessing import Process
 from contextlib import contextmanager
 from os import environ
-from typing import Optional, ContextManager
+from platform import platform
 
-from playsound import playsound
 import click
 
 
 RC_OK = 0
 RC_ENV_VAR = 1
 ENV_VAR = 'ONHOLD'
+BLOCK_WHILE_PLAYING = True
 
 
 def get_assets_dir() -> Path:
@@ -22,9 +23,21 @@ DEFAULT_ASSETS = get_assets_dir()
 DEFAULT_SONG = DEFAULT_ASSETS / 'song.mp3'
 DEFAULT_SOUND = DEFAULT_ASSETS / 'ding.ogg'
 
+PLATFORM = platform().lower()
 
-def play_file(file: Path):
-  playsound(str(file.absolute()))
+
+if 'windows' in PLATFORM or 'nt' in PLATFORM:
+  from playsound import playsound
+
+  def play_file(file: Path):
+    playsound(str(file.absolute()))
+
+else:
+  from boombox import BoomBox
+
+  def play_file(file: Path):
+    player = BoomBox(file, wait=BLOCK_WHILE_PLAYING)
+    player.play()
 
 
 def play_loop(file: Path):
@@ -82,16 +95,16 @@ def dumb_pipe():
 def run(file: Optional[Path] = None):
   if not file:
     dumb_pipe()
-    return 
+    return
 
-  with play_while_running(file) as proc:
+  with play_while_running(file):
     dumb_pipe()
 
 
 @contextmanager
 def using_path(
-  sound_path: Optional[str], 
-  warn: bool, 
+  sound_path: Optional[str],
+  warn: bool,
   default: Optional[Path] = DEFAULT_SONG,
   env_var: str = ENV_VAR,
 ) -> ContextManager[Path]:
@@ -113,17 +126,3 @@ def using_path(
 
   else:
     exit(RC_ENV_VAR)
-
-
-@click.command(help="""Play the specified sound file while data is passed in through standard input and passed through standard output.""")
-@click.option('-s', '--sound_path', required=False,
-  type=click.Path(exists=True), help="Path to sound to play.")
-@click.option('-w', '--warn', required=False,
-  is_flag=True, default=False, help="Show warnings.")
-def cmd(sound_path: Optional[str], warn: bool):
-  with using_path(sound_path, warn) as path:
-    run(path)
-
-
-if __name__ == "__main__":
-  cmd()

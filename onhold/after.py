@@ -13,7 +13,7 @@ ENV_VAR = 'DING'
 
 
 def run(file: Path):
-  with play_after(file) as path:
+  with play_after(file):
     if not is_pipeline():
       return
 

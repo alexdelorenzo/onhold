@@ -15,9 +15,9 @@ ENV_VAR = 'ONHOLD'
 def run(file: Optional[Path] = None):
   if not file:
     dumb_pipe()
-    return 
+    return
 
-  with play_while_running(file) as proc:
+  with play_while_running(file):
     dumb_pipe()
 
 
