@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 NAME = "onhold"
-VERSION = "0.3.8"
+VERSION = "0.3.10"
 LICENSE = "AGPL-3.0"
 
 DESC = "🔊 Play music while and after jobs complete"
@@ -37,5 +37,4 @@ setup(
       entry_points=ENTRY_POINTS,
       python_requires='>=3.6',
       include_package_data=True,
-      package_data={'onhold': ['assets/*']},
 )
