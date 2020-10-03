@@ -4,8 +4,9 @@ from pathlib import Path
 from os import environ
 
 from .base import play_after, dumb_pipe, using_path, \
-  play_file, is_pipeline, RC_ENV_VAR, DEFAULT_SOUND, RC_OK
+  play_file, is_pipeline, RC_ENV_VAR, RC_OK
 
+from play_sounds import DEFAULT_SOUND
 import click
 
 
