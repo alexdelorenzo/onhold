@@ -3,9 +3,10 @@ from sys import exit, stderr
 from pathlib import Path
 from os import environ
 
-from .base import play_after, dumb_pipe, using_path, \
-  play_file, is_pipeline, RC_ENV_VAR, DEFAULT_SOUND, RC_OK
+from .base import dumb_pipe, using_path, is_pipeline, \
+  RC_ENV_VAR, RC_OK
 
+from play_sounds import play_after, DEFAULT_SOUND
 import click
 
 
