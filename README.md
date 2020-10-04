@@ -141,9 +141,3 @@ Options:
 
 # License
 See `LICENSE`. If you'd like to use this project with a different license, please get in touch.
-
-
-# Credit
-## Music
-
-See [`CREDIT.md`](/CREDIT.md).
