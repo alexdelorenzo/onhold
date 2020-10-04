@@ -74,6 +74,9 @@ $ echo "Hello!" | ding
 Hello!
 ```
 
+### [`ding`](https://github.com/alexdelorenzo/ding) is its own package, too
+You can install [`ding`](https://github.com/alexdelorenzo/ding) by itself. Future versions of `onhold` will not ship with [`ding`](https://github.com/alexdelorenzo/ding). [Click here to visit `ding`'s project page with installation instructions.](https://github.com/alexdelorenzo/ding)
+
 # Installation
 ## Dependencies
  - A Unix shell like Bash
