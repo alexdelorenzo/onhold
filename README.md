@@ -20,7 +20,7 @@ $ export URL="https://releases.ubuntu.com/20.04.1/ubuntu-20.04.1-desktop-amd64.i
 $ http "$URL" | pv | onhold | ding > /dev/null
 ```
 
-This project uses [`play_sounds`](https://github.com/alexdelorenzo/ding), a wrapper over [`playsound`](https://pypi.org/project/playsound/) and [`boombox`](https://pypi.org/project/boombox/).
+This project uses [`play_sounds`](https://github.com/alexdelorenzo/play_sounds), a wrapper over [`playsound`](https://pypi.org/project/playsound/) and [`boombox`](https://pypi.org/project/boombox/).
 
 ## `onhold`
 
