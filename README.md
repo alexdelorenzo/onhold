@@ -2,23 +2,25 @@
 
 `onhold` is a command-line utility that allows you to play music while a long job completes.
 
-`ding` is command-line utility that will play a sound after a long job completes.
+[`ding`](https://github.com/alexdelorenzo/ding) is command-line utility that will play a sound after a long job completes.
 
-Both utilities will take data that is piped into their standard inputs and pipe it to standard output. That is to say that data piped into `onhold` and `ding` will be piped right back out.
+Both utilities will take data that is piped into their standard inputs and pipe it to standard output. That is to say that data piped into `onhold` and [`ding`](https://github.com/alexdelorenzo/ding) will be piped right back out.
 
 ```bash
 $ echo "Hello!" | onhold
 Hello!
 ```
 
-As a result, you can build pipelines with `onhold` and `ding`.
+As a result, you can build pipelines with `onhold` and [`ding`](https://github.com/alexdelorenzo/ding).
 
-For example, you can download an ISO with [`http`](https://httpie.org/), visualize the progress with [`pv`](http://www.ivarch.com/programs/pv.shtml), play music with `onhold` while writing to `/dev/null`, and when it's finished, play a sound with `ding`.
+For example, you can download an ISO with [`http`](https://httpie.org/), visualize the progress with [`pv`](http://www.ivarch.com/programs/pv.shtml), play music with `onhold` while writing to `/dev/null`, and when it's finished, play a sound with [`ding`](https://github.com/alexdelorenzo/ding).
 
 ```bash
 $ export URL="https://releases.ubuntu.com/20.04.1/ubuntu-20.04.1-desktop-amd64.iso"
 $ http "$URL" | pv | onhold | ding > /dev/null
 ```
+
+This project uses [`play_sounds`](https://github.com/alexdelorenzo/ding), a wrapper over [`playsound`](https://pypi.org/project/playsound/) and [`boombox`](https://pypi.org/project/boombox/).
 
 ## `onhold`
 
@@ -44,7 +46,7 @@ $ echo "Hello!" | onhold
 Hello!
 ```
 
-## `ding`
+## [`ding`](https://github.com/alexdelorenzo/ding)
 
 You can either set the `$DING` environment variable to the sound you'd like to play, or supply the sound with the `-s` flag.
 
@@ -65,7 +67,7 @@ $ echo "Hello!" | ding -s ding.ogg
 Hello!
 ```
 
-`ding` comes with a default sound that will play if neither `$DING` or `-s` are set. You can use the `-w` flag to show warnings if `$DING` or `-s` are not set.
+[`ding`](https://github.com/alexdelorenzo/ding) comes with a default sound that will play if neither `$DING` or `-s` are set. You can use the `-w` flag to show warnings if `$DING` or `-s` are not set.
 
 ```bash
 $ echo "Hello!" | ding
