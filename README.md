@@ -87,9 +87,11 @@ You can install [`ding`](https://github.com/alexdelorenzo/ding) by itself. Futur
 
 This project uses the assignment expression feature that was introduced in Python 3.8. Read below if you'd like to use this project in an older version of Python.
 
+<!--
 #### Older Python Versions
 
 Use [this project's Python 3.6 branch named `python3.6`](https://github.com/alexdelorenzo/onhold/tree/python3.6), which was tested on Python 3.6. It might work on older versions, too.
+-->
 
 ### Linux
  - GStreamer
