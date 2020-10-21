@@ -46,6 +46,15 @@ $ echo "Hello!" | onhold
 Hello!
 ```
 
+The song can get some time to start to play. On my system, this did not produce any sound:
+```
+( echo hi ; sleep 1 ; echo ok ) | onhold > /dev/null
+```
+While this did:
+```
+( echo hi ; sleep 5 ; echo ok ) | onhold > /dev/null
+```
+
 ## [`ding`](https://github.com/alexdelorenzo/ding)
 
 You can either set the `$DING` environment variable to the sound you'd like to play, or supply the sound with the `-s` flag.
