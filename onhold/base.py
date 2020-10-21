@@ -9,21 +9,10 @@ from play_sounds import DEFAULT_SONG
 import click
 
 
-
 RC_OK = 0
 RC_ENV_VAR = 1
 ENV_VAR = 'ONHOLD'
 BLOCK_WHILE_PLAYING = True
-
-
-#def get_assets_dir() -> Path:
-  #return Path(__file__).parent / 'assets'
-
-
-#DEFAULT_ASSETS = get_assets_dir()
-#DEFAULT_SONG = DEFAULT_ASSETS / 'song.mp3'
-#DEFAULT_SOUND = DEFAULT_ASSETS / 'ding.ogg'
-
 PLATFORM = platform().lower()
 
 
