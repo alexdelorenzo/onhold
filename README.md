@@ -80,7 +80,7 @@ You can install [`ding`](https://github.com/alexdelorenzo/ding) by itself. Futur
 # Installation
 ## Dependencies
  - A Unix shell like Bash
- - Python 3.8+
+ - Python 3.6+
  - `requirements.txt`
 
 ### Python 
