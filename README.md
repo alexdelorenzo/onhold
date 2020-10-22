@@ -93,6 +93,12 @@ This project uses the assignment expression feature that was introduced in Pytho
 Use [this project's Python 3.6 branch named `python3.6`](https://github.com/alexdelorenzo/onhold/tree/python3.6), which was tested on Python 3.6. It might work on older versions, too.
 -->
 
+### AUR
+
+```bash
+yay -S onhold # replace yay with your aur helper
+```
+
 ### Linux
  - GStreamer
 
