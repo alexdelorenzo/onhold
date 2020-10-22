@@ -83,29 +83,22 @@ You can install [`ding`](https://github.com/alexdelorenzo/ding) by itself. Futur
  - Python 3.6+
  - `requirements.txt`
 
-### Python 
-
-This project uses the assignment expression feature that was introduced in Python 3.8. Read below if you'd like to use this project in an older version of Python.
-
-<!--
-#### Older Python Versions
-
-Use [this project's Python 3.6 branch named `python3.6`](https://github.com/alexdelorenzo/onhold/tree/python3.6), which was tested on Python 3.6. It might work on older versions, too.
--->
-
-### AUR
-
-```bash
-yay -S onhold # replace yay with your aur helper
-```
-
 ### Linux
- - GStreamer
+You'll need to install GStreamer on Linux, or the `play` binary from `sox`.
+ 
+#### Ubuntu
 
 On Ubuntu, you will need to install `PyGObject`, `gstreamer1.0-python3-plugin-loader` and `python3-gst-1.0`.
 
 ```bash
 sudo apt install python3-gi gstreamer1.0-python3-plugin-loader python3-gst-1.0
+```
+
+#### AUR
+On Arch, you can install `onhold` and its prerequisites [directly from the AUR](https://aur.archlinux.org/packages/onhold/). Thanks, @jfrcom!
+
+```bash
+$ yay -S onhold # replace yay with your aur helper
 ```
 
 ## PyPI
