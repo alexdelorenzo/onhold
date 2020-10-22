@@ -95,7 +95,7 @@ sudo apt install python3-gi gstreamer1.0-python3-plugin-loader python3-gst-1.0
 ```
 
 #### AUR
-On Arch, you can install `onhold` and its prerequisites [directly from the AUR](https://aur.archlinux.org/packages/onhold/). Thanks, @jfrcom!
+On Arch, you can install `onhold` and its prerequisites [directly from the AUR](https://aur.archlinux.org/packages/onhold/). Thanks, [@jfrcom](https://github.com/jfrcom)!
 
 ```bash
 $ yay -S onhold # replace yay with your aur helper
