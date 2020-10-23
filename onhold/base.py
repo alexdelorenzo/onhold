@@ -3,7 +3,6 @@ from sys import stdin, stdout, exit, stderr
 from pathlib import Path
 from contextlib import contextmanager
 from os import environ
-from platform import platform
 
 from play_sounds import DEFAULT_SONG
 import click
@@ -13,7 +12,6 @@ RC_OK = 0
 RC_ENV_VAR = 1
 ENV_VAR = 'ONHOLD'
 BLOCK_WHILE_PLAYING = True
-PLATFORM = platform().lower()
 
 
 def is_pipeline() -> bool:
