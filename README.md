@@ -123,7 +123,7 @@ Usage: onhold [OPTIONS]
 
 Options:
   -s, --sound_path PATH  Path to sound to play.
-  -i, --ignore           Suppress warnings.
+  -w, --warn             Show warnings.
   --help                 Show this message and exit.
 ```
 
