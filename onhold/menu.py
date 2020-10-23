@@ -57,6 +57,6 @@ def menu(dir):
 	]
 
 	answers = prompt(questions, style=style)
-	pprint(answers)
+	return answers
 
 
