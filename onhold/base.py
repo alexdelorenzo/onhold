@@ -3,8 +3,7 @@ from typing import Optional, ContextManager
 from sys import stdin, stdout, exit, stderr
 from pathlib import Path
 from os import environ
-import sys
-import subprocess
+from subprocess import run
 
 from play_sounds import DEFAULT_SONG
 from detect import unix as IS_UNIX
@@ -14,7 +13,7 @@ import click
 RC_OK = 0
 RC_ENV_VAR = 1
 ENV_VAR = 'ONHOLD'
-BLOCK_WHILE_PLAYING = True
+PIPE_CMD = 'cat'
 
 
 def is_pipeline() -> bool:
@@ -23,16 +22,16 @@ def is_pipeline() -> bool:
 
 def dumb_pipe():
   if IS_UNIX:
-    # if we're on unix, just redirect via shell
-    subprocess.run(
-      "cat",
+    # if we're on unix, redirect via shell
+    run(
+      PIPE_CMD,
       shell=True,
-      stdin=stdin,
-      stdout=stdout
+      stdin=stdin.buffer,
+      stdout=stdout.buffer
     )
 
   else:
-    # if we're on windows, iterate over stdin
+    # if we're some other platform, iterate over stdin
     stdout.buffer.writelines(stdin.buffer)
 
 
