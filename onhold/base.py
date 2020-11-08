@@ -1,10 +1,13 @@
+from contextlib import contextmanager, redirect_stdout
 from typing import Optional, ContextManager
 from sys import stdin, stdout, exit, stderr
 from pathlib import Path
-from contextlib import contextmanager
 from os import environ
+import sys
+import subprocess
 
 from play_sounds import DEFAULT_SONG
+from detect import unix as IS_UNIX
 import click
 
 
@@ -19,9 +22,18 @@ def is_pipeline() -> bool:
 
 
 def dumb_pipe():
-  for line in stdin.buffer:
-    stdout.buffer.write(line)
-    stdout.buffer.flush()
+  if IS_UNIX:
+    # if we're on unix, just redirect via shell
+    subprocess.run(
+      "cat",
+      shell=True,
+      stdin=stdin,
+      stdout=stdout
+    )
+
+  else:
+    # if we're on windows, iterate over stdin
+    stdout.buffer.writelines(stdin.buffer)
 
 
 @contextmanager
