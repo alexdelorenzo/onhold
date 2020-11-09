@@ -1,16 +1,10 @@
 from typing import Optional
-from sys import exit, stderr
 from pathlib import Path
-from os import environ
-
-from .base import dumb_pipe, using_path, is_pipeline, \
-  RC_ENV_VAR, RC_OK
 
 from play_sounds import play_while_running
 import click
 
-
-ENV_VAR = 'ONHOLD'
+from .base import dumb_pipe, using_path, is_pipeline
 
 
 def run(file: Optional[Path] = None):
