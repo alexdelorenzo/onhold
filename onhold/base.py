@@ -20,17 +20,17 @@ def is_pipeline() -> bool:
 
 
 def dumb_pipe():
+  # if we're on unix, redirect via shell
   if IS_UNIX:
-    # if we're on unix, redirect via shell
     run(
       PIPE_CMD,
       shell=True,
       stdin=stdin.buffer,
       stdout=stdout.buffer
     )
-
+    
+  # if we're on some other platform, iterate over stdin
   else:
-    # if we're on some other platform, iterate over stdin
     stdout.buffer.writelines(stdin.buffer)
 
 
