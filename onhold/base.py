@@ -30,7 +30,7 @@ def dumb_pipe():
     )
 
   else:
-    # if we're some other platform, iterate over stdin
+    # if we're on some other platform, iterate over stdin
     stdout.buffer.writelines(stdin.buffer)
 
 
