@@ -1,4 +1,4 @@
-from contextlib import contextmanager, redirect_stdout
+from contextlib import contextmanager
 from typing import Optional, ContextManager
 from sys import stdin, stdout, stderr, exit
 from pathlib import Path
