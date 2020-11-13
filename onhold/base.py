@@ -3,7 +3,7 @@ from typing import Optional, ContextManager
 from sys import stdin, stdout, stderr, exit
 from pathlib import Path
 from os import environ
-from subprocess import run
+#from subprocess import run
 
 from play_sounds import DEFAULT_SONG
 from detect import unix as IS_UNIX
@@ -12,7 +12,9 @@ from detect import unix as IS_UNIX
 RC_OK = 0
 RC_ENV_VAR = 1
 ENV_VAR = 'ONHOLD'
-PIPE_CMD = 'cat'
+
+KB = 2 ** 10
+CHUNK = 64 * KB
 
 
 def is_pipeline() -> bool:
@@ -20,18 +22,8 @@ def is_pipeline() -> bool:
 
 
 def dumb_pipe():
-  # if we're on unix, redirect via shell
-  if IS_UNIX:
-    run(
-      PIPE_CMD,
-      shell=True,
-      stdin=stdin.buffer,
-      stdout=stdout.buffer
-    )
-    
-  # if we're on some other platform, iterate over stdin
-  else:
-    stdout.buffer.writelines(stdin.buffer)
+  while data := stdin.buffer.read(CHUNK):
+    stdout.buffer.write(data)
 
 
 @contextmanager
