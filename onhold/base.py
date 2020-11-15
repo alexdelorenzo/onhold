@@ -50,6 +50,9 @@ def using_path(
   if sound_path:
     path = Path(str(sound_path))
 
+#   elif var := environ.get(env_var):
+#     path = Path(var)
+
   elif env_var in environ:
     path = Path(environ[env_var])
 
