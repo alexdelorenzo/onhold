@@ -2,6 +2,5 @@ click==7.1.2
 boombox==0.56
 play_sounds==0.0.5
 playsound==1.2.2
-detect==2020.7.1 
 
 PyObjc==6.2.2; sys_platform == 'darwin'

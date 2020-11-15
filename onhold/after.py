@@ -10,7 +10,7 @@ import click
 ENV_VAR = 'DING'
 
 
-def run(file: Path):
+def run(file: Optional[Path]):
   with play_after(file):
     if not is_pipeline():
       return

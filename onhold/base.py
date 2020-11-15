@@ -6,7 +6,6 @@ from os import environ
 #from subprocess import run
 
 from play_sounds import DEFAULT_SONG
-from detect import unix as IS_UNIX
 
 
 RC_OK = 0
@@ -21,9 +20,22 @@ def is_pipeline() -> bool:
   return not stdin.isatty()
 
 
+# python 3.8+ compatible
+#def dumb_pipe():
+#  while data := stdin.buffer.read(CHUNK):
+#    stdout.buffer.write(data)
+
+
+# python 3.6 compatible
 def dumb_pipe():
-  while data := stdin.buffer.read(CHUNK):
+  while True:
+    data = stdin.buffer.read(CHUNK)
+
+    if not data:
+      break
+
     stdout.buffer.write(data)
+
 
 
 @contextmanager
