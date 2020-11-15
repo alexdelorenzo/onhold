@@ -3,7 +3,6 @@ from typing import Optional, ContextManager
 from sys import stdin, stdout, stderr, exit
 from pathlib import Path
 from os import environ
-#from subprocess import run
 
 from play_sounds import DEFAULT_SONG
 
