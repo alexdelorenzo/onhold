@@ -1,10 +1,10 @@
 from typing import Optional
 from pathlib import Path
 
-from .base import dumb_pipe, using_path, is_pipeline
-
 from play_sounds import play_after, DEFAULT_SOUND
 import click
+
+from .base import dumb_pipe, using_path, is_pipeline
 
 
 ENV_VAR = 'DING'
