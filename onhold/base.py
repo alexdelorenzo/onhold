@@ -36,7 +36,6 @@ def dumb_pipe():
     stdout.buffer.write(data)
 
 
-
 @contextmanager
 def using_path(
   sound_path: Optional[str],
