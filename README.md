@@ -87,14 +87,13 @@ You can install [`ding`](https://github.com/alexdelorenzo/ding) by itself. Futur
 You'll need to install GStreamer on Linux, or the `play` binary from `sox`.
  
 #### Ubuntu
-
 On Ubuntu, you will need to install `PyGObject`, `gstreamer1.0-python3-plugin-loader` and `python3-gst-1.0`.
 
 ```bash
 $ sudo apt install python3-gi gstreamer1.0-python3-plugin-loader python3-gst-1.0
 ```
 
-#### AUR
+#### Arch
 On Arch, you can install `onhold` and its prerequisites [directly from the AUR](https://aur.archlinux.org/packages/onhold/). Thanks, [@jfrcom](https://github.com/jfrcom)!
 
 ```bash
