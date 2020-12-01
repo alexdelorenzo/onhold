@@ -1,6 +1,7 @@
 from contextlib import contextmanager
 from typing import Optional, ContextManager
 from sys import stdin, stdout, stderr, exit
+from subprocess import run
 from pathlib import Path
 from os import environ
 
@@ -13,6 +14,8 @@ ENV_VAR = 'ONHOLD'
 
 KB = 2 ** 10
 CHUNK = 64 * KB
+
+BELL_CMD = "tput bel"
 
 
 def is_pipeline() -> bool:
@@ -34,6 +37,19 @@ def dumb_pipe():
       break
 
     stdout.buffer.write(data)
+
+    
+def bell():
+  run(BELL_CMD, shell=True)
+
+
+@contextmanager
+def bell_after() -> ContextManager:
+  try:
+    yield
+
+  finally:
+    bell()
 
 
 @contextmanager
