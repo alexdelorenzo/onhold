@@ -26,7 +26,7 @@ def run(file: Optional[Path] = None):
   type=click.Path(exists=True), help="Path to sound to play.")
 @click.option('-b', '--bell', required=False,
   default=False, show_default=True, is_flag=True,
-  type=click.BOOL, help="Ring terminal bell, as well.")
+  type=click.BOOL, help="Ring the terminal bell, as well.")
 @click.option('-w', '--warn', required=False,
   is_flag=True, default=False, help="Show warnings.")
 def cmd(sound_path: Optional[str], bell: bool, warn: bool):
