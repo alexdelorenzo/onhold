@@ -4,7 +4,7 @@ from pathlib import Path
 from play_sounds import play_after, DEFAULT_SOUND
 import click
 
-from .base import dumb_pipe, using_path, is_pipeline, bell
+from .base import dumb_pipe, using_path, is_pipeline, bell as play_bell
 
 
 ENV_VAR = 'DING'
@@ -30,7 +30,7 @@ def cmd(sound_path: Optional[str], bell: bool, warn: bool):
     run(path)
   
   if bell:
-    bell()
+    play_bell()
 
 
 if __name__ == "__main__":
