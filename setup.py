@@ -32,7 +32,7 @@ setup(
   author=__author__,
   license=LICENSE,
   packages=[NAME],
-  zip_safe=False,
+  zip_safe=True,
   install_requires=REQUIREMENTS,
   entry_points=ENTRY_POINTS,
   python_requires='>=3.6',
