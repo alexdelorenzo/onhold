@@ -122,7 +122,7 @@ Usage: onhold [OPTIONS]
 
 Options:
   -s, --sound_path PATH  Path to sound to play.
-  -b, --bell             Ring terminal bell, as well.  [default: False]
+  -b, --bell             Ring the terminal bell, as well.  [default: False]
   -w, --warn             Show warnings.
   --help                 Show this message and exit.
 ```
@@ -136,7 +136,7 @@ Usage: ding [OPTIONS]
 
 Options:
   -s, --sound_path PATH  Path to sound to play.
-  -b, --bell             Ring terminal bell, as well.  [default: False]
+  -b, --bell             Ring the terminal bell, as well.  [default: False]
   -w, --warn             Show warnings.
   --help                 Show this message and exit.
 ```
