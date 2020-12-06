@@ -79,7 +79,7 @@ You can install [`ding`](https://github.com/alexdelorenzo/ding) by itself. Futur
 
 # Installation
 ## Dependencies
- - A Unix shell like Bash
+ - A Unix shell like Bash, or Powershell or Command Prompt on Windows
  - Python 3.6+
  - `requirements.txt`
 
