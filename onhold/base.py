@@ -44,7 +44,7 @@ def using_path(
   warn: bool,
   default: Optional[Path] = DEFAULT_SONG,
   env_var: str = ENV_VAR,
-) -> ContextManager[Path]:
+) -> ContextManager[Optional[Path]]:
   path = default
 
   if sound_path:
