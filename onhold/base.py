@@ -14,8 +14,6 @@ ENV_VAR = 'ONHOLD'
 KB = 2 ** 10
 CHUNK = 64 * KB
 
-BELL_CMD = "tput bel"
-
 
 def is_pipeline() -> bool:
   return not stdin.isatty()
