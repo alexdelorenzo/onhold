@@ -18,7 +18,7 @@ def run(file: Optional[Path]):
     dumb_pipe()
 
 
-@click.command(help="Play specified sound after job is complete.")
+@click.command(help="Play specified sound after shell job is completed.")
 @click.option('-s', '--sound_path', required=False,
   type=click.Path(exists=True), help="Path to sound to play.")
 @click.option('-b', '--bell', required=False,
