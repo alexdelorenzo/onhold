@@ -28,7 +28,7 @@ def run(file: Optional[Path]):
   is_flag=True, default=False, help="Show warnings.")
 def cmd(sound_path: Optional[str], bell: bool, warn: bool):
   with bell_after(bell), \
-    using_path(sound_path, warn, DEFAULT_SOUND, ENV_VAR) as path:
+       using_path(sound_path, warn, DEFAULT_SOUND, ENV_VAR) as path:
     run(path)
 
 
