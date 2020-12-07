@@ -22,7 +22,7 @@ def run(file: Optional[Path] = None):
     "through standard input and passed through standard output."
   )
 )
-@click.option('-s', '--sound_path', required=False,
+@click.option('-s', '--sound-path', required=False,
   type=click.Path(exists=True), help="Path to sound to play.")
 @click.option('-b', '--bell', required=False,
   default=False, show_default=True, is_flag=True,
