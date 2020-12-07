@@ -19,7 +19,7 @@ def run(file: Optional[Path]):
 
 
 @click.command(help="Play specified sound after shell job is completed.")
-@click.option('-s', '--sound_path', required=False,
+@click.option('-s', '--sound-path', required=False,
   type=click.Path(exists=True), help="Path to sound to play.")
 @click.option('-b', '--bell', required=False,
   default=False, show_default=True, is_flag=True,
