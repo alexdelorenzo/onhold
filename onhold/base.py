@@ -3,6 +3,7 @@ from typing import Optional, ContextManager
 from sys import stdin, stdout, stderr, exit
 from pathlib import Path
 from os import environ
+import logging
 
 from play_sounds import DEFAULT_SONG
 
@@ -55,7 +56,7 @@ def using_path(
     path = Path(environ[env_var])
 
   elif warn:
-    stderr.write(f"Please set ${env_var} or use the -s flag.\n")
+    logging.warning(f"Please set ${env_var} or use the -s flag.")
 
   yield path
 
