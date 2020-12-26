@@ -52,7 +52,7 @@ You can either set the `$DING` environment variable to the sound you'd like to p
 
 ```bash
 # You can run ding after a command or as part of a pipeline
-$ export DING="~/Music/ding.ogg"
+$ export DING="~/Music/ding.mp3"
 $ sleep 5; ding
 $ echo "Hello!" | ding
 Hello!
@@ -63,7 +63,7 @@ This allows you to set `$DING` in your `~/.bashrc`.
 You can also specify it with a flag.
 
 ```bash
-$ echo "Hello!" | ding -s ding.ogg
+$ echo "Hello!" | ding -s ding.mp3
 Hello!
 ```
 
