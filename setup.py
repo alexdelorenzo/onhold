@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 NAME = "onhold"
-VERSION = "0.6.4"
+VERSION = "0.6.5"
 LICENSE = "AGPL-3.0"
 
 DESC = "🔊 Play music while and after jobs complete"
@@ -28,7 +28,7 @@ setup(
   description=DESC,
   long_description=README,
   long_description_content_type="text/markdown",
-  url="https://alexdelorenzo.dev",
+  url="https://github.com/alexdelorenzo/onhold",
   author=__author__,
   license=LICENSE,
   packages=[NAME],
