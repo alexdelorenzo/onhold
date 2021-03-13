@@ -141,5 +141,10 @@ Options:
   --help                 Show this message and exit.
 ```
 
+## Support
+Want to support this project and [other open-source projects](https://github.com/alexdelorenzo) like it?
+
+<a href="https://www.buymeacoffee.com/alexdelorenzo" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" height="60px" style="height: 60px !important;width: 217px !important;max-width:25%" ></a>
+
 # License
 See `LICENSE`. If you'd like to use this project with a different license, please get in touch.
