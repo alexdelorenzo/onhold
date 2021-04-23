@@ -1,0 +1,16 @@
+[tool]
+[tool.poetry]
+name = "onhold"
+version = "0.6.6"
+description = "🔊 Play music while and after jobs complete"
+license = "AGPL-3.0"
+homepage = "https://github.com/alexdelorenzo/onhold"
+authors = ["Alex DeLorenzo"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.6"
+boombox = "==0.56"
+click = "==7.1.2"
+play-sounds = "==0.4.3"
+pyobjc = {version = "==6.2.2", platform = "darwin"}
