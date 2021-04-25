@@ -16,7 +16,7 @@ As a result, you can build pipelines with `onhold` and [`ding`](https://github.c
 For example, you can download an ISO with [`http`](https://httpie.org/), visualize the progress with [`pv`](http://www.ivarch.com/programs/pv.shtml), play music with `onhold` while writing to `/dev/null`, and when it's finished, play a sound with [`ding`](https://github.com/alexdelorenzo/ding).
 
 ```bash
-$ export URL="https://releases.ubuntu.com/20.04.1/ubuntu-20.04.1-desktop-amd64.iso"
+$ export URL="http://releases.ubuntu.com/releases/21.04/ubuntu-21.04-desktop-amd64.iso"
 $ http "$URL" | pv | onhold | ding > /dev/null
 ```
 
