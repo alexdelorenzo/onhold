@@ -7,7 +7,7 @@ import click
 from .base import dumb_pipe, using_path, is_pipeline
 
 
-ENV_VAR = 'DING'
+ENV_VAR: str = 'DING'
 
 
 def run(file: Optional[Path]):

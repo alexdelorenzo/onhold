@@ -8,12 +8,12 @@ import logging
 from play_sounds import DEFAULT_SONG
 
 
-RC_OK = 0
-RC_ENV_VAR = 1
-ENV_VAR = 'ONHOLD'
+RC_OK: int = 0
+RC_ENV_VAR: int = 1
+ENV_VAR: str = 'ONHOLD'
 
-KB = 2 ** 10
-CHUNK = 64 * KB
+KB: int = 2 ** 10
+CHUNK: int = 64 * KB
 
 
 def is_pipeline() -> bool:
