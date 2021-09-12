@@ -40,7 +40,7 @@ def dumb_pipe():
     if not data:
       break
 
-    buffered_read(data)
+    buffered_write(data)
 
 
 @contextmanager
