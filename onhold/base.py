@@ -1,5 +1,5 @@
 from contextlib import contextmanager
-from typing import Optional, ContextManager
+from typing import Optional, ContextManager, Callable
 from sys import stdin, stdout, stderr, exit
 from pathlib import Path
 from os import environ
@@ -16,25 +16,31 @@ KB: int = 2 ** 10
 CHUNK: int = 64 * KB
 
 
+# get references to read/write funcs so we don't do
+# attribute lookups in loops
+buffered_read: Callable[[], bytes] = stdin.buffer.read
+buffered_write: Callable[[bytes]] = stdout.buffer.write
+
+
 def is_pipeline() -> bool:
   return not stdin.isatty()
 
 
 # python 3.8+ compatible
 # def dumb_pipe():
-#   while data := stdin.buffer.read(CHUNK):
-#     stdout.buffer.write(data)
+#   while data := buffered_read(CHUNK):
+#     buffered_write(data)
 
 
 # python 3.6 compatible
 def dumb_pipe():
   while True:
-    data = stdin.buffer.read(CHUNK)
+    data = buffered_read(CHUNK)
 
     if not data:
       break
 
-    stdout.buffer.write(data)
+    buffered_read(data)
 
 
 @contextmanager
