@@ -18,7 +18,7 @@ CHUNK: int = 64 * KB
 
 # get references to read/write funcs so we don't do
 # attribute lookups in loops
-buffered_read: Callable[[], bytes] = stdin.buffer.read
+buffered_read: Callable[[int], bytes] = stdin.buffer.read
 buffered_write: Callable[[bytes]] = stdout.buffer.write
 
 
